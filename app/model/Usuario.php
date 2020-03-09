@@ -1,16 +1,17 @@
 <?php
 
-class Usuario{
+require_once("Conexao.php");
+class Usuario extends Conexao{
 
 	private $matricula;
 	private $senha;
 
 
 	public function setMatricula($matricula){
-		$this->nome = $nome;
+		$this->matricula = $matricula;
 	}
 
-	public function setEmail($senha){
+	public function setSenha($senha){
 		$this->senha = $senha;
 	}
 
@@ -20,5 +21,9 @@ class Usuario{
 
 	public function getSenha(){
 		return $this->senha;
+	}
+
+	public function fazerLogin(){
+		return $this->doLogin($this->getMatricula(), $this->getSenha());
 	}
 }
